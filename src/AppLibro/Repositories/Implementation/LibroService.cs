@@ -89,7 +89,7 @@ namespace AppLibro.Repositories.Implementation
                 int count = list.Count;
 
                 int totalPages = (int)Math.Ceiling(count / (double)pageZise);
-                list = list.Skip((currentPage-1)*pageZise).Take(totalPages).ToList();
+                list = list.Skip((currentPage-1)*pageZise).Take(pageZise).ToList();
                 data.PageSize = pageZise;
                 data.CurrentPage = currentPage;
                 data.TotalPages = totalPages;

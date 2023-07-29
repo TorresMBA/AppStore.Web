@@ -1,4 +1,6 @@
 using AppLibro.Models.Domain;
+using AppLibro.Repositories.Abstract;
+using AppLibro.Repositories.Implementation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 /**
@@ -14,6 +16,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+#region Inyección para ILibroService
+builder.Services.AddScoped<ILibroService, LibroService>();
+#endregion
 
 #region Conexión a la Base de Datos + Logger
 builder.Services.AddDbContext<DatabaseContext>(optionsAction => {
