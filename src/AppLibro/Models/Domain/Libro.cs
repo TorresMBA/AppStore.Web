@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppLibro.Models.Domain
 {
@@ -20,5 +21,11 @@ namespace AppLibro.Models.Domain
         public virtual ICollection<Categoria>? CategoriaRelationList { get; set; }
 
         public virtual ICollection<LibroCategoria>? LibroCategoriaRelationList { get; set; }
+
+        [NotMapped]
+        public List<int>? Categorias { get; set; }
+
+        [NotMapped]
+        public string? CategoriasName {get;set;}
     }
 }
